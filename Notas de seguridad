@@ -1,0 +1,10 @@
+Conjunto de declaraciones acerca de seguridad informatica
+Desde el punto de vista de la ingenieria de software se puede garantizar seguridad si:
+1. Se comprende la importancia del ciclo de vida del software como herramienta para la seguridad de las aplicaciones y el software.
+2. Que desde el punto de vista agil, el manifiesto agil es una declaracion de valores y principios que no solo aportan calidad en los procesos de software, sino que tambien aportan seguridad al entender que la calidad está determinada por la seguridad.
+3. Que la seguridad en el software es un atributo de calidad
+
+Considerando esto planteamos que:
+1.  Crearemos hash para colaborar con algoritmos de encriptacion tanto en passwords como en validacion de formularios (validando metodo de envio)
+2. Validaremos el tiempo de conexion inactiva de los usuarios (10 segundos preterminados).
+3. Crearemos un repositorio local y global para controlar las versiones del software y evitar el uso malicioso de archivos de configuracion. Para ello, utilizaremos gitignore e incluir los archivos que tienen información sencible
