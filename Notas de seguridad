@@ -7,4 +7,11 @@ Desde el punto de vista de la ingenieria de software se puede garantizar segurid
 Considerando esto planteamos que:
 1.  Crearemos hash para colaborar con algoritmos de encriptacion tanto en passwords como en validacion de formularios (validando metodo de envio)
 2. Validaremos el tiempo de conexion inactiva de los usuarios (10 segundos preterminados).
-3. Crearemos un repositorio local y global para controlar las versiones del software y evitar el uso malicioso de archivos de configuracion. Para ello, utilizaremos gitignore e incluir los archivos que tienen información sencible
+3. Crearemos un repositorio local y global para controlar las versiones del software y evitar el uso malicioso de archivos de configuracion. Para ello, utilizaremos gitignore e incluir los archivos que tienen información sencible:
+	3.1 git init crea repositorio local (antes hay que eliminar la carpeta .git de axiomaframe para crear uno nuevo)
+	3.2 git status para verificar los archivos nuevos o modificados
+	3.3 git add . sube al stage los archivos modificados o creados
+	3.4 git commit -m "" confirma los cambios realizados en el repositorio local
+	3.5 Crear repositorio nuevo en github.com
+	3.6 Realizar los comandos sugeridos exceptuando los que se realizaron desde el punto 3.1 al 3.4
+	3.7 Con ello tendremos una copia exacta de nuestro repositorio local en la nube (origin)
