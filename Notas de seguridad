@@ -15,3 +15,4 @@ Considerando esto planteamos que:
 	3.5 Crear repositorio nuevo en github.com
 	3.6 Realizar los comandos sugeridos exceptuando los que se realizaron desde el punto 3.1 al 3.4
 	3.7 Con ello tendremos una copia exacta de nuestro repositorio local en la nube (origin)
+	3.8 Creamos modelo de datos para garantizar escalabilidad y mantenibilidad del software
