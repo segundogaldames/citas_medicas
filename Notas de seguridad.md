@@ -5,9 +5,9 @@ Desde el punto de vista de la ingenieria de software se puede garantizar segurid
 3. Que la seguridad en el software es un atributo de calidad
 
 Considerando esto planteamos que:
-1.  Crearemos hash para colaborar con algoritmos de encriptacion tanto en passwords como en validacion de formularios (validando metodo de envio)
+1.  Crearemos hash para colaborar con algoritmos de encriptacion tanto en passwords como en validacion de formularios (validando metodo de envio: POST, GET, PUT y DELETE)
 2. Validaremos el tiempo de conexion inactiva de los usuarios (10 segundos preterminados).
-3. Crearemos un repositorio local y global para controlar las versiones del software y evitar el uso malicioso de archivos de configuracion. Para ello, utilizaremos gitignore e incluir los archivos que tienen información sensible:
+3. Crearemos un repositorio local y global para controlar las versiones del software y evitar el uso malicioso de archivos de configuracion. Para ello, utilizaremos gitignore e incluiremos los archivos que tienen información sensible:
 	3.1 git init crea repositorio local (antes hay que eliminar la carpeta .git de axiomaframe para crear uno nuevo)
 	3.2 git status para verificar los archivos nuevos o modificados
 	3.3 git add . sube al stage los archivos modificados o creados
@@ -22,4 +22,7 @@ Considerando esto planteamos que:
 	4.2 Creamos los modelos (logica de datos)
 	4.3 Creamos controladores (logica de negocio)
 	4.4 Creamos las vistas (consumo de usuarios)
-	4.5 Definimos a MVC como arquitectura de softwares
+	4.5 Definimos a MVC como arquitectura de software
+5. Funcion de seguridad del controlador padre:
+	5.1
+6. La aplicación posee dos clases para sanitizar las urls de las peticiones de recursos. Estas son Bootstrap y Request
