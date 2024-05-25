@@ -19,8 +19,9 @@
 	<body>
 		{% include 'layout/default/menu.twig' %}
 
-		<div class="container mx-auto"> 
-      {% block content %}{% endblock %}
+		<div role="status" class="container mx-auto md:flex"> 
+			{% include 'layout/default/sidebar.twig' %}
+      		{% block content %}{% endblock %}
 		</div>
 
 
