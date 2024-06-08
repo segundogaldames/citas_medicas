@@ -24,7 +24,7 @@ class rolesController extends Controller
     #metodo get para cargar un formulario de registro
     public function create()
     {
-        list($msg_succcess, $msg_error) = $this->getMessages();
+        list($msg_success, $msg_error) = $this->getMessages();
 
         $options = [
             'title' => 'Roles',

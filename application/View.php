@@ -19,6 +19,7 @@ class View
 		$route_template = ROOT . 'views' . DS;
 		$twig = new Environment(new FilesystemLoader('views/'));
 		$twig->addGlobal('BASE', BASE_URL);
+		$twig->addGlobal('session', $_SESSION);
 
 		//print_r($twig);exit;
 
