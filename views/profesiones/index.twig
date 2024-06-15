@@ -1,0 +1,67 @@
+{% extends "layout/default/template.twig" %}
+{% block title %} {{options.titulo}}{% endblock %}
+{% block content %}
+
+<div class="w-full px-2">
+	<div class="block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+		<h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Lista de Profesiones 
+            <a href="{{BASE}}profesiones/create" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Nueva Profesión
+                </span>
+            </a>
+        {% include 'partials/_messages.twig' %}
+
+        </h1>
+        {% if options.profesiones is not empty %}
+            
+
+		<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+			<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+				<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+					<tr>
+						<th scope="col" class="px-6 py-3">
+							Id
+						</th>
+						<th scope="col" class="px-6 py-3">
+							Profesión
+						</th>
+						<th scope="col" class="px-6 py-3">
+							Acciones
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for model in options.profesiones %}
+						<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+							<td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+								{{model.id}}
+							</td>
+							<td class="px-6 py-4">
+								{{model.nombre}}
+							</td>
+							<td class="px-6 py-2">
+								<a href="{{BASE}}profesiones/view/{{model.id}}" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Ver</a>
+								<a href="{{BASE}}profesiones/edit/{{model.id}}" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Editar</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+
+        {% else %}
+            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                <p class="text-blue-800 font-semibold">
+                    No hay profesiones registradas
+                </p>
+            </div>
+        {% endif %}
+	</div>
+</div>
+
+{% endblock %}
+
