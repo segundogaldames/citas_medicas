@@ -30,7 +30,9 @@ class rolesController extends Controller
             'title' => 'Roles',
             'rol' => Session::get('data'),
             'process' => 'roles/store',
-            'send' => $this->encrypt($this->getForm())
+            'send' => $this->encrypt($this->getForm()),
+            'action' => 'create',
+            'button' => 'Guardar'
         ];
 
         $this->_view->load('roles/create', compact('options','msg_success','msg_error'));
@@ -59,5 +61,53 @@ class rolesController extends Controller
         Session::destroy('data');
         Session::set('msg_success','El rol se ha registrado correctamente');
         $this->redirect('roles');
+    }
+
+    public function view($id = null)
+    {
+        Validate::validateModel(Role::class, $id, 'error/error');
+        list($msg_success, $msg_error) = $this->getMessages();
+
+        $options = [
+            'title' => 'Detalle Rol',
+            'rol' => Role::find(Filter::filterInt($id))
+        ];
+
+        $this->_view->load('roles/view', compact('options','msg_success','msg_error'));
+    }
+
+    public function edit($id = null)
+    {
+        Validate::validateModel(Role::class, $id, 'error/error');
+        list($msg_success, $msg_error) = $this->getMessages();
+
+        $options = [
+            'title' => 'Editar Rol',
+            'rol' => Role::select('id','nombre')->find(Filter::filterInt($id)),
+            'process' => "roles/update/{$id}",
+            'send' => $this->encrypt($this->getForm()),
+            'action' => 'edit',
+            'button' => 'Modificar'
+        ];
+
+        $this->_view->load('roles/edit', compact('options','msg_success','msg_error'));
+    }
+
+    public function update($id = null)
+    {
+        Validate::validateModel(Role::class, $id, 'error/error');
+        $this->validatePUT();
+
+        $this->validateForm("roles/edit/{$id}",[
+            'nombre' => Filter::getText('nombre')
+        ]);
+
+        $rol = Role::find(Filter::filterInt($id));
+        $rol->nombre = Filter::getText('nombre');
+        $rol->save();
+        
+        Session::destroy('data');
+        Session::set('msg_success','El rol se ha modificado correctamente');
+        $this->redirect('roles/view/' . $id);
     }
 }
