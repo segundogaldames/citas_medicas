@@ -8,4 +8,9 @@ class Especialidad extends Model
 {
     protected $table = 'especialidades';
     protected $fillable = [];
+
+    public function funcionarios()
+    {
+        return $this->hasMany(Funcionario::class);
+    }
 }
